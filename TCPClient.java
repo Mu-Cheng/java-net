@@ -8,7 +8,7 @@ class TCPClient{
         while(true){
             BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
             //创建socket对象
-            Socket clientSocket = new Socket(InetAddress.getByName("118.89.162.148"),6789);
+            Socket clientSocket = new Socket("118.89.162.148",6789);
             //为进程提供到套接字的输出
             DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
             //接受套接字的输入

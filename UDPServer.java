@@ -8,7 +8,8 @@ class UDPServer{
         byte[] sendData = new byte[1024];
         while(true){
             DatagramPacket receivePacket = new DatagramPacket(receiveData,receiveData.length);
-            serverSocket.receive = new String(receivePacket.getData());
+            serverSocket.receive(receivePacket); 
+            String sentence = new String(receivePacket.getData());
             InetAddress IPAddress = receivePacket.getAddress();
             int port = receivePacket.getPort();
             String capitalizedSentence = sentence.toUpperCase();

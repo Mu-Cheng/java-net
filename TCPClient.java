@@ -4,6 +4,7 @@ class TCPClient{
     public static void main(String argv[]) throws Exception{
         String sentence;
         String modifiedSentence;
+      
         while(true){
             BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
             //创建socket对象
@@ -18,7 +19,7 @@ class TCPClient{
             //读取结果
             modifiedSentence = inFromServer.readLine();
             System.out.println("From server: " + modifiedSentence);
+            clientSocket.close();
         }
-        clientSocket.close();
     }
 }

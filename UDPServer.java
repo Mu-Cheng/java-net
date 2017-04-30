@@ -9,12 +9,16 @@ class UDPServer{
         while(true){
             DatagramPacket receivePacket = new DatagramPacket(receiveData,receiveData.length);
             serverSocket.receive(receivePacket);
-            System.out.println(receivePacket);
             String sentence = new String(receivePacket.getData());
             InetAddress IPAddress = receivePacket.getAddress();
             int port = receivePacket.getPort();
             String capitalizedSentence = sentence.toUpperCase();
             sendData = capitalizedSentence.getBytes();
+            System.out.println(sendData);
+            System.out.println(sendData.length);
+            System.out.println(IPAddress);
+            System.out.println(port);            
+            
             DatagramPacket sendPacket = new DatagramPacket(sendData,sendData.length,IPAddress,port);
             serverSocket.send(sendPacket);
         }

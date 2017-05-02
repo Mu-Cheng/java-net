@@ -40,10 +40,9 @@ public class MainWindow extends JFrame {
 		setContentPane(contentPane);
 		
 		text = new JTextArea();
-		text.setText("reding");
 		
 		IPTF = new JTextField();
-		IPTF.setText("127.0.0.1");
+		IPTF.setText("118.89.162.148");
 		IPTF.setColumns(10);
 		
 		JButton connctionBtn = new JButton("\u8FDE\u63A5\u5230\u670D\u52A1\u5668");

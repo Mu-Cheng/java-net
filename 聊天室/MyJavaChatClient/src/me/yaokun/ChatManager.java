@@ -7,6 +7,8 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import javax.swing.JOptionPane;
+
 import me.yaokun.view.MainWindow;
 
 public class ChatManager {
@@ -42,24 +44,27 @@ public class ChatManager {
 					socket = new Socket(ip, 54321);
 					writer = new PrintWriter(
 							new OutputStreamWriter(
-									socket.getOutputStream()));
+									socket.getOutputStream(),"UTF-8"));
+					
 					reader = new BufferedReader(
 							new InputStreamReader(
-									socket.getInputStream()));
+									socket.getInputStream(),"UTF-8"));
 					
 					String line;
 					while ((line = reader.readLine())!=null) {
+						//JOptionPane.showMessageDialog(null, line);
 						window.appendText(" ’µΩ£∫"+line);
 						
 					}
 					
-					writer.close();
+					//writer.close();
 					reader.close();
-					writer = null;
+					//writer = null;
 					reader = null;
 				
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 			}
@@ -69,6 +74,8 @@ public class ChatManager {
 
 	public void send(String out) {
 		if(writer!=null){
+			//out = out + "\n";
+			
 			writer.write(out+"\n");
 			writer.flush();
 		}else {

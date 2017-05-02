@@ -18,6 +18,7 @@ public class ChatSocket extends Thread {
 	
 	public void out(String out) {
 		try {
+			//System.out.println(out);
 			socket.getOutputStream().write(out.getBytes("UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -37,7 +38,7 @@ public class ChatSocket extends Thread {
 			BufferedReader br = 
 					new BufferedReader(
 							new InputStreamReader(
-									socket.getInputStream(), "UTF-8"));
+									socket.getInputStream(),"UTF-8"));
 			String line = null;
 			while((line = br.readLine())!=null){
 				ChatManager.getChatManager().publish(this, line+"\n");
@@ -48,9 +49,21 @@ public class ChatSocket extends Thread {
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			try {
+				socket.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			try {
+				socket.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		
 		

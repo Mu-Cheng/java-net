@@ -19,12 +19,12 @@ public class ServerListener extends Thread {
 				ChatSocket cSocket = new ChatSocket(socket);
 				cSocket.start();
 				ChatManager.getChatManager().addSocket(cSocket);
-				String address = cSocket.socket.toString();
+				//String address = cSocket.socket.toString();
 				
 				//JOptionPane.showMessageDialog(null, address);
 			}
 			
-			//JOptionPane.showMessageDialog(null, "О©╫п©м╩О©╫О©╫О©╫О©╫О©╫О©╫О©╫");
+			//JOptionPane.showMessageDialog(null, "сп©м╩╖╤ка╛╫с");
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
